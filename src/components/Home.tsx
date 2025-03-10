@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { Music, User, Plus, ThumbsUp, Trash2, ThumbsDown, LogOut } from 'lucide-react'
 import axios from 'axios'
+import { LogOut, Music, Plus, ThumbsUp, Trash2 } from 'lucide-react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 declare global {
@@ -193,19 +193,19 @@ export default function Home() {
 
   // The logic that simulates removing the *current* song from the queue is commented out
   // Instead, we just delete it from the DB if you want that behavior
-  const handleDeleteCurrentSong = async () => {
-    if (songs.length > 0) {
-      try {
-        const currentSong = songs[currentSongIndex]
-        await axios.delete(`${apiUrl}/api/songs/${currentSong.id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        fetchSongs()
-      } catch (error) {
-        console.error(error)
-      }
-    }
-  }
+  // const handleDeleteCurrentSong = async () => {
+  //   if (songs.length > 0) {
+  //     try {
+  //       const currentSong = songs[currentSongIndex]
+  //       await axios.delete(`${apiUrl}/api/songs/${currentSong.id}`, {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       })
+  //       fetchSongs()
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  // }
 
   // Delete any song from the queue (dustbin icon)
   const handleDeleteSong = async (song: Song) => {
